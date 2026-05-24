@@ -1,0 +1,235 @@
+/* -----------------------------------------
+   Variables y Reseteo General
+----------------------------------------- */
+:root {
+    --bg-color: #f7f5f0;       /* Fondo crudo cálido */
+    --text-color: #1a1a1a;     /* Negro tipográfico */
+    --accent-color: #d45d3a;   /* Tono óxido/terracota */
+    --font-titles: 'Syne', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 0 4% 140px 4%; /* Padding amplio abajo para no tapar el footer con el menú flotante */
+}
+
+/* -----------------------------------------
+   Header
+----------------------------------------- */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+}
+
+.logo {
+    font-family: var(--font-titles);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+/* -----------------------------------------
+   Estructura y Contenedores (Grid Asimétrica)
+----------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.hero {
+    margin-bottom: 5rem;
+    max-width: 900px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* -----------------------------------------
+   Tipografía Jerárquica
+----------------------------------------- */
+h1 {
+    font-family: var(--font-titles);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 1.5rem;
+}
+
+.text-stroke {
+    -webkit-text-stroke: 1px var(--text-color);
+    color: transparent;
+}
+
+h2 {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-family: var(--font-titles);
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+}
+
+p.lead {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(26, 26, 26, 0.8);
+    max-width: 700px;
+}
+
+p {
+    font-size: 1rem;
+    color: rgba(26, 26, 26, 0.75);
+    text-align: justify;
+}
+
+/* -----------------------------------------
+   Elementos Multimedia (Imagen y Video)
+----------------------------------------- */
+.featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.featured-image:hover {
+    filter: grayscale(0%);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* -----------------------------------------
+   Menú Flotante Inferior
+----------------------------------------- */
+.nav-bottom {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(26, 26, 26, 0.95);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    gap: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+.nav-bottom a {
+    font-family: var(--font-body);
+    text-decoration: none;
+    color: rgba(247, 245, 240, 0.6);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-bottom a:hover, .nav-bottom a.active {
+    color: var(--bg-color);
+}
+
+.nav-bottom a.active {
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* -----------------------------------------
+   Footer y Bloque de Licencia
+----------------------------------------- */
+.footer {
+    margin-top: 6rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(26, 26, 26, 0.1);
+    text-align: center;
+}
+
+.license-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.8rem;
+    color: rgba(26, 26, 26, 0.6);
+    line-height: 1.5;
+}
+
+.license-block a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+.license-block a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.license-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.license-icons img {
+    height: 18px;
+    width: auto;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.license-block:hover .license-icons img {
+    opacity: 0.9;
+}
